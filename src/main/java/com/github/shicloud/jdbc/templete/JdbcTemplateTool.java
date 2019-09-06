@@ -26,7 +26,7 @@ public final class JdbcTemplateTool {
 	private JdbcTemplate jdbcTemplate;
 	
 	private static Boolean insertGetId = false;
-    @Value("${jdbc.template.insertGetId}")
+    @Value("${jdbc.template.insertGetId:false}")
     public void setPrefix(Boolean insertGetId) {
     	JdbcTemplateTool.insertGetId = insertGetId;
     }
@@ -43,6 +43,10 @@ public final class JdbcTemplateTool {
 	
 	public void insert(Object obj) throws Exception{
 		insert(obj,null,insertGetId);
+    }
+	
+	public void insert(Object obj,boolean getId) throws Exception{
+		insert(obj,null,getId);
     }
 	
 	public void insert(Object obj,String tableName) throws Exception{

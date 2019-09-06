@@ -33,11 +33,11 @@ public class ModelSqlUtil {
 	private static String PREFIX;
 	private static String SUFFIX;
 
-	@Value("${jdbc.template.prefix}")
+	@Value("${jdbc.template.prefix:}")
 	public void setPrefix(String prefix) {
 		ModelSqlUtil.PREFIX = prefix;
 	}
-	@Value("${jdbc.template.suffix}")
+	@Value("${jdbc.template.suffix:}")
 	public void setSuffix(String suffix) {
 		ModelSqlUtil.SUFFIX = suffix;
 	}
